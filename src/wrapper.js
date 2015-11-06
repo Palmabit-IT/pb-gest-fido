@@ -4,7 +4,7 @@ angular.module('pbGestFido', [])
 
     function isValid(document, customerFido) {
       var deferred = $q.defer(),
-        fido = new DocumentFido(customerFido),
+        fido = new PbFido(customerFido),
         response = fido.isValid(document);
 
       if (!response || response.valid === false) {
