@@ -40,7 +40,7 @@ class PbFido {
       return this.responseValid();
     } else if (this.fido.not_payed >= this.fido.amount) {
       return this.responseInvalid();
-    } else if (document.total_price.total > this.fido.amount) {
+    } else if (document.total_price.total + this.fido.not_payed > this.fido.amount) {
       return this.responseWarning();
     } else if (this.fido.opens >= this.fido.max_opens) {
       return this.responseWarning();

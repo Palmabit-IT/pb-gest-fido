@@ -1,4 +1,4 @@
-/*! pb-gest-fido 0.1.2 - Copyright 2015 Palmabit <hello@palmabit.com> (http://www.palmabit.com) */
+/*! pb-gest-fido 0.1.3 - Copyright 2015 Palmabit <hello@palmabit.com> (http://www.palmabit.com) */
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -54,7 +54,7 @@ var PbFido = (function () {
         return this.responseValid();
       } else if (this.fido.not_payed >= this.fido.amount) {
         return this.responseInvalid();
-      } else if (document.total_price.total > this.fido.amount) {
+      } else if (document.total_price.total + this.fido.not_payed > this.fido.amount) {
         return this.responseWarning();
       } else if (this.fido.opens >= this.fido.max_opens) {
         return this.responseWarning();
