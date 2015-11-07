@@ -40,14 +40,14 @@ class PbFido {
       return this.responseValid();
     } else if (this.fido.not_payed >= this.fido.amount) {
       return this.responseInvalid();
-    } else if (document.total_price.total + this.fido.not_payed > this.fido.amount) {
-      return this.responseWarning();
     } else if (this.fido.open >= this.fido.max_open) {
       return this.responseWarning();
     } else if (this.fido.days >= this.fido.max_days) {
       return this.responseWarning();
     } else if (!document || !document.total_price || !document.total_price.total) {
       return this.responseValid();
+    } else if (document.total_price.total + this.fido.not_payed > this.fido.amount) {
+      return this.responseWarning();
     }
 
     return this.responseValid();
